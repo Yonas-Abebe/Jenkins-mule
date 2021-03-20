@@ -16,7 +16,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<ftp:config name="FTP_Config" doc:name="FTP Config" doc:id="ebd4d524-56dd-48a3-bc4f-ed4caa5e32dc" >
 		<ftp:connection workingDir="/htdocs/yoni/craftshoppingDbRemote/outputDB/" host="ftpupload.net" username="epiz_27954235" password="3oqSKwevsD" />
 	</ftp:config>
-	<flow name="jenkins-muleFlow" doc:id="39af3c6a-b94f-4a5a-8297-2f4144cb32c1" >
+	<flow name="database2ftp" doc:id="39af3c6a-b94f-4a5a-8297-2f4144cb32c1" >
 		<http:listener doc:name="Listener" doc:id="00697703-d11b-4a86-86cc-8ed2575c5f2f" config-ref="HTTP_Listener_config" path="/jenkins2"/>
 		<db:select doc:name="Select" doc:id="6012fb45-b1ef-4ec6-9908-adc4ab966919" config-ref="Database_Config">
 			<db:sql ><![CDATA[SELECT * FROM craftshopping.orders;
@@ -31,5 +31,6 @@ payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<ftp:write doc:name="Write" doc:id="3bb66bac-4248-4901-a9f1-e4da81eba377" config-ref="FTP_Config" path="orders.json" />
+		<logger level="INFO" doc:name="Logger" doc:id="aa2dc917-c705-4872-9471-da5787f1128f" message='ክላውድ ላይ በደንብ ገብቷል! አንበሳ! #[payload]'/>
 	</flow>
 </mule>
