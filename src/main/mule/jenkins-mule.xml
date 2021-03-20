@@ -31,6 +31,6 @@ payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<ftp:write doc:name="Write" doc:id="3bb66bac-4248-4901-a9f1-e4da81eba377" config-ref="FTP_Config" path="orders.json" />
-		<logger level="INFO" doc:name="Logger" doc:id="aa2dc917-c705-4872-9471-da5787f1128f" message='ክላውድ ላይ በደንብ ገብቷል! አንበሳ! #[payload]'/>
+		<logger level="INFO" doc:name="Logger" doc:id="aa2dc917-c705-4872-9471-da5787f1128f" message='/nክላውድ ላይ በደንብ ገብቷል! አንበሳ! #[payload]'/>
 	</flow>
 </mule>
